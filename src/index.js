@@ -13,8 +13,8 @@ app.use(cors())
 
 app.use(routes)
 
-const DB = process.env.DATABASE_URI.replace('<PASSWORD>', process.env.DATABASE_PASSWORD)
-// const DB = process.env.DATABASE
+// const DB = process.env.DATABASE_URI.replace('<PASSWORD>', process.env.DATABASE_PASSWORD)
+const DB = process.env.DATABASE
 
 mongoose.connect(DB, {
     useNewUrlParser: true,

@@ -1,4 +1,4 @@
-name: cabal-frontend-CI
+name: secret-server-CI
 
 on:
   push:
@@ -9,6 +9,9 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+    - DATABASE_URI=mongodb+srv://ncutixavier:<PASSWORD>@cluster0.o8egx.mongodb.net/portifolio?retryWrites=true&w=majority
+    - DATABASE_PASSWORD = DebITMmwuSTlGiId
     
     strategy:
       matrix:
