@@ -1,0 +1,49 @@
+{
+  "name": "secret-server",
+  "version": "1.0.0",
+  "description": "Secret Server API",
+  "main": "index.js",
+  "scripts": {
+    "test": "NODE_ENV=test nyc mocha --recursive --require @babel/polyfill --require @babel/register ./src/tests/*.js --timeout 100000 --exit",
+    "build": "babel src --out-dir dist --source-maps inline --copy-files",
+    "start": "npm run build && node --require @babel/polyfill ./dist/index.js",
+    "dev": "nodemon --exec babel-node ./src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/ncutixavier/secret-server.git"
+  },
+  "keywords": [
+    "secret",
+    "message"
+  ],
+  "author": "@ncutixavier",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/ncutixavier/secret-server/issues"
+  },
+  "homepage": "https://gitlab.com/ncutixavier/secret-server#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "mongoose": "^5.11.13"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.12.10",
+    "@babel/core": "^7.12.10",
+    "@babel/node": "^7.12.10",
+    "@babel/polyfill": "^7.12.1",
+    "@babel/preset-env": "^7.12.11",
+    "chai": "^4.2.0",
+    "chai-http": "^4.3.0",
+    "coveralls": "^3.1.0",
+    "dotenv": "^8.2.0",
+    "mocha": "^8.2.1",
+    "nyc": "^15.1.0"
+  },
+  "engines": {
+    "node": "12",
+    "npm": "6.7.0"
+  }
+}
