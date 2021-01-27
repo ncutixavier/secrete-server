@@ -1,4 +1,4 @@
-name: cabal-frontend-CI
+name: secret-server-CI
 
 on:
   push:

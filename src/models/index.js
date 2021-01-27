@@ -4,8 +4,11 @@ const messageSchema = new mongoose.Schema({
     secret: {
         type: String,
         required: [true, 'A Message must have a secrete'],
-        trim: true,
-        unique: true
+        trim: true
+    },
+
+    hash: {
+        type: String
     },
 
     expireAfterViews: {
@@ -14,9 +17,8 @@ const messageSchema = new mongoose.Schema({
     },
 
     expireAfter: {
-        type: Date,
-        default: new Date(),
-        required: [true, 'message must have a expire date']
+        type: Number,
+        required: [true, 'message must have a expire time']
     },
 
     createdAt: { type: Date, default: Date.now }

@@ -73,7 +73,7 @@ describe('Messages', () => {
         let message = {
             "secret": "Test Secrete",
             "expireAfterViews": 8,
-            "expireAfter": "2021-01-26"
+            "expireAfter": 1
         }
         chai.request(server)
             .post('/api/secret')
@@ -85,4 +85,17 @@ describe('Messages', () => {
                 done();
             });
     });
+
+    it('should NOT GET by hash', (done) => {
+        let hash = '01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b'
+        chai.request(server)
+            .get('/api/secret' + hash)
+            .end((err, res) => {
+                expect(res.statusCode).to.equal(404)
+                expect(res.body).to.have.property('message')
+
+                done();
+            });
+    });
+
 });
